@@ -1,4 +1,5 @@
-﻿namespace Linq_QueryExpression;
+﻿using System.Xml.Linq;
+namespace Linq_QueryExpression;
 class Program
 {
     static void Main(string[] args)
@@ -53,5 +54,14 @@ class Program
             Console.WriteLine($"Clinete: {res.NomeCli}, [Porduto: {res.NomePro} - Preço: {res.precoPro}]");
         }
 
+        //resultado com expressão lambada
+
+        var resultado2 = clientes.Select(x => x.Produtos);
+
+        foreach (var listaprod in resultado2)
+        {
+            foreach (var product in listaprod)
+                Console.WriteLine(product.PrecoProduto);
+        }
     }
 }
